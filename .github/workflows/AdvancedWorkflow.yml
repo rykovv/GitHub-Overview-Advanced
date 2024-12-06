@@ -1,6 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
-name: first workflow
+name: advanced workflow
+env:
+  WORKFLOW_VAR: "This variable is declared at the workflow level"
 
 # Controls when the workflow will run
 on:
@@ -34,6 +36,9 @@ jobs:
         
   secondjob:
     runs-on: ubuntu-latest
+    needs: firstjob
+    env:
+      JOB_VAR: "This is a job variable"
     steps:
       # Runs a set of commands using the runners shell
       - name: secondjob script
@@ -41,3 +46,15 @@ jobs:
         run: |
           echo this is the second job
           echo and this is a multiline script
+      - name: environment variable
+        env:
+          STEP_VAR: "This variable is declared at the step level"
+        run: |
+          echo $WORKFLOW_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+          echo "This is the $SUPER_SECRET"
+          echo $GITHUB_ACTOR
+          echo $GITHUB_JOB
+          echo $GITHUB_REF
+          
