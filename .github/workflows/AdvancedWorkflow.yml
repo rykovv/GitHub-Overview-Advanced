@@ -53,7 +53,7 @@ jobs:
           echo $WORKFLOW_VAR
           echo $JOB_VAR
           echo $STEP_VAR
-          echo "This is the $SUPER_SECRET"
+          echo "This is the ${{ secrets.SUPER_SECRET }}"
           echo $GITHUB_ACTOR
           echo $GITHUB_JOB
           echo $GITHUB_REF
