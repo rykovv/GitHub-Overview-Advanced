@@ -22,7 +22,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
       - name: firstjob script
-        shell: cmd
         run: echo Hello, world! This is the first job
       - name: Print to Log
         id: print-to-log
